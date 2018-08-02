@@ -422,3 +422,6 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.oomph.setup.ui 1 0 2018-08-02 19:55:04.432
 !MESSAGE Setup tasks were performed during startup updating 3 preferences. See 'C:\sts-bundle\sts-3.9.5.RELEASE\configuration\org.eclipse.oomph.setup\setup.log' for details
+
+!ENTRY org.eclipse.jface.text 2 0 2018-08-02 20:24:12.148
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
