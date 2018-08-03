@@ -1,14 +1,40 @@
 package aplication;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import domain.Person;
 
 public class Aplication {
 
 	public static void main(String[] args) {
-		
-		Person p1 = new Person(1, "DOUGLAS COELHO", "DOUGLAS@MOUSEWEB.COM.BR");
-		
-		System.out.println(p1);
+
+		// Person p1 = new Person(null, "DOUGLAS COELHO", "DOUGLAS@MOUSEWEB.COM.BR");
+		// Person p2 = new Person(null, "LETICIA", "LETICIA@MOUSEWEB.COM.BR");
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+		EntityManager em = emf.createEntityManager();
+
+		// SALVA OS DADOS
+		// em.getTransaction().begin();
+		// em.persist(p1);
+		// em.persist(p2);
+		// em.getTransaction().commit();
+
+		// BUSCAR PESSOA NO BANCO PELO ID
+		// Person p = em.find(Person.class, 1);
+
+		// REMOVE PELO ID
+		Person p = em.find(Person.class, 2);
+		em.getTransaction().begin();
+		em.remove(p);
+		em.getTransaction().commit();
+
+		System.out.println(p);
+		System.out.println("Feito");
+
+		em.close();
+		emf.close();
 
 	}
 

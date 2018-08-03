@@ -1,8 +1,6 @@
 package domain;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,9 +13,7 @@ public class Person implements Serializable{
 	
 	@Id  
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(name="nome")
+	private Integer id;
 	private String name;
 	private String email;
 	
@@ -25,11 +21,19 @@ public class Person implements Serializable{
 		
 	}
 
-	public Person(int id, String name, String email) {
+	public Person(Integer id, String name, String email) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -38,14 +42,6 @@ public class Person implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
@@ -58,9 +54,7 @@ public class Person implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", id=" + id + ", email=" + email + "]";
+		return "Person [id=" + id + ", name=" + name + ", email=" + email + "]";
 	}
-	
-	
-	
+
 }
